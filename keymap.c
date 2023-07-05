@@ -38,16 +38,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //
                                             KC_SPACE, OSM(MOD_LSFT),            OSM(MOD_RCTL), TO(1)
   ),
-
 [1] = LAYOUT( /* Colemak */
 //
-    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                   KC_J,    KC_L             ,  KC_U             ,    KC_Y,   KC_SCLN,
+    KC_TRNS,    KC_7,  KC_8, KC_9, KC_TRNS,             KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,   KC_BSPC,
 //
-    KC_A,   KC_R,   MT(MOD_LALT, KC_S),    MT(MOD_LGUI,KC_T), KC_G,             KC_M,    MT(MOD_RGUI,KC_N),  MT(MOD_RALT,KC_E),    KC_I,   KC_O,
+    KC_TRNS,   KC_4,   KC_5, KC_6, KC_TRNS,             MOD_RSFT, MOD_RGUI,  MOD_RALT,MOD_RCTL,   KC_ENTER,
 //
-    KC_Z,   KC_X,    KC_C             ,    KC_D             , KC_V,             KC_K,    KC_H,  KC_COMM, KC_DOT, KC_RLSH,
+    KC_TRNS,   KC_1,   KC_2, KC_3, KC_TRNS,             KC_TRNS,    KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,
 //
-                                            TO(0),   OSM(MOD_LSFT),             OSM(MOD_RCTL), TO(1)
+            TO(0),   OSM(MOD_LSFT),             OSM(MOD_RCTL), TO(2)
+  ),
+
+
+[2] = LAYOUT( /* Colemak */
+//
+    KC_TRNS,    KC_7,  KC_8, KC_9, KC_TRNS,             KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,   KC_BSPC,
+//
+    KC_TRNS,   KC_4,   KC_5, KC_6, KC_TRNS,             MOD_RSFT, MOD_RGUI,  MOD_RALT,MOD_RCTL,   KC_ENTER,
+//
+    KC_TRNS,   KC_1,   KC_2, KC_3, KC_TRNS,             KC_TRNS,    KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,
+//
+            TO(0),   OSM(MOD_LSFT),             OSM(MOD_RCTL), TO(1)
   ),
 
 
