@@ -8,11 +8,7 @@
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
 
-enum ferris_layers {
-  _QWERTY,
-  _LOWER,
-  _RAISE
-};
+
 
 enum ferris_tap_dances {
   TD_Q_ESC
@@ -26,7 +22,10 @@ enum ferris_tap_dances {
 #define KC_BSM1 LT(1, KC_BSPC)
 #define KC_GUTA GUI_T(KC_TAB)
 #define KC_CLGV CTL_T(KC_GRV)
-
+#define KC_UE RALT(KC_Y)
+#define KC_OE RALT(KC_P)
+#define KC_AE RALT(KC_Q)
+#define KC_SZ RALT(KC_S)
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT( /* Colemak */
 //
@@ -34,17 +33,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //
     KC_A,   KC_R,   MT(MOD_LALT, KC_S),    MT(MOD_LGUI,KC_T), KC_G,             KC_M,    MT(MOD_RGUI,KC_N),  MT(MOD_RALT,KC_E),    KC_I,   KC_O,
 //
-    KC_Z,   KC_X,    KC_C             ,    KC_D             , KC_V,             KC_K,    KC_H,  KC_COMM, KC_DOT, KC_RLSH,
+   LT(5, KC_Z),   KC_X,    KC_C             ,    KC_D             , KC_V,             KC_K,    KC_H,  KC_COMM, KC_DOT, LT(5, KC_RLSH),
 //
                                             KC_SPACE, OSM(MOD_LSFT),            OSM(MOD_RCTL), TO(1)
   ),
 [1] = LAYOUT( /* Colemak */
 //
-    KC_TRNS,    KC_7,  KC_8, KC_9, KC_TRNS,             KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,   KC_BSPC,
+    KC_ESCAPE,    KC_AT,  KC_EXLM, KC_PIPE, KC_LPRN,                                    KC_RPRN, KC_AMPR,  KC_GRV,    KC_BSLS,   KC_BSPC,
 //
-    KC_TRNS,   KC_4,   KC_5, KC_6, KC_TRNS,             MOD_RSFT, MOD_RGUI,  MOD_RALT,MOD_RCTL,   KC_ENTER,
+    KC_TAB,   KC_DLR,  MT(MOD_LALT, KC_SCLN),MT(MOD_LGUI,KC_PERC), KC_LCBR,             KC_RCBR,MT(MOD_RGUI, KC_PLUS),  MT(MOD_RALT,KC_MINS),KC_ASTR,   KC_ENTER,
 //
-    KC_TRNS,   KC_1,   KC_2, KC_3, KC_TRNS,             KC_TRNS,    KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_EQUAL,   KC_CIRC,   KC_QUOT, KC_DQUO, KC_LBRC,                                   KC_RBRC,    KC_HASH, S(KC_SCLN), KC_UNDS, KC_TILD,
 //
             TO(0),   OSM(MOD_LSFT),             OSM(MOD_RCTL), TO(2)
   ),
@@ -52,27 +51,50 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [2] = LAYOUT( /* Colemak */
 //
-    KC_TRNS,    KC_7,  KC_8, KC_9, KC_TRNS,             KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,   KC_BSPC,
+    KC_ESCAPE,    KC_7,  KC_8, KC_9, KC_0,                                     KC_F9, KC_F10,  KC_F11,    KC_F12,   KC_BSPC,
 //
-    KC_TRNS,   KC_4,   KC_5, KC_6, KC_TRNS,             MOD_RSFT, MOD_RGUI,  MOD_RALT,MOD_RCTL,   KC_ENTER,
+    KC_TAB,   KC_4,  MT(MOD_LALT, KC_5), MT(MOD_LGUI,KC_6), KC_NO,             KC_F5, MT(MOD_RGUI,KC_F6), MT(MOD_RALT, KC_F7),KC_F8,   KC_ENTER,
 //
-    KC_TRNS,   KC_1,   KC_2, KC_3, KC_TRNS,             KC_TRNS,    KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_NO,   KC_1,   KC_2, KC_3, KC_NO,                                        KC_F1,    KC_F2,  KC_F3, KC_F4, TO(3),
 //
-            TO(0),   OSM(MOD_LSFT),             OSM(MOD_RCTL), TO(1)
+            TO(0),   OSM(MOD_LSFT),             OSM(MOD_RCTL), TO(2)
   ),
 
 
-  [2] = LAYOUT( /* [> RAISE <] */
+  [3] = LAYOUT( /* [> RAISE <] */
 
 //
-    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,           KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,
-//
-    KC_TAB,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_PIPE,
-//
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,         KC_UNDS, KC_PLUS, KC_TRNS, KC_TRNS, QK_BOOT,
-//
-                                    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+    TO(4),   KC_MS_BTN1,   KC_MS_UP,   KC_MS_BTN2,   KC_WH_U,           KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
 
+    KC_NO,  KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_WH_D,                  KC_LEFT, KC_DOWN,  KC_UP, KC_RIGHT, KC_NO,
+//
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+//
+                                    TO(0), KC_TRNS, KC_TRNS, TO(1)
+
+  ),
+    [4] = LAYOUT( /* [> RAISE <] */
+
+//
+    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,   QK_BOOT,
+
+    KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO,                  KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO,
+//
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+//
+                                    TO(0), KC_TRNS, KC_TRNS, TO(1)
+
+  ),
+    [5] = LAYOUT( /* [> RAISE <] */
+
+//
+    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,           KC_TRNS,   KC_TRNS,   KC_UE,   KC_TRNS,   KC_TRNS,
+    KC_AE,   KC_TRNS,     KC_SZ,  KC_TRNS,   KC_TRNS,          KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_OE,
+//
+   KC_TRNS,   KC_TRNS,     KC_TRNS,  KC_TRNS,   KC_TRNS,          KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+
+//
+                                    KC_TRNS,   KC_TRNS,     KC_TRNS,  KC_TRNS
   )
 };
 
