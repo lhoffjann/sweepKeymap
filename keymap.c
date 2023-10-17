@@ -41,9 +41,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //
     KC_ESCAPE,    KC_AT,  KC_EXLM, KC_PIPE, KC_LPRN,                                    KC_RPRN, KC_AMPR,  KC_GRV,    KC_BSLS,   KC_BSPC,
 //
-    KC_TAB,   KC_DLR,  MT(MOD_LALT, KC_SCLN),MT(MOD_LGUI,KC_PERC), KC_LCBR,             KC_RCBR,MT(MOD_RGUI, KC_PLUS),  MT(MOD_RALT,KC_MINS),KC_ASTR,   KC_ENTER,
+    KC_TAB,   KC_DLR,  MT(MOD_LALT, KC_SCLN),MT(MOD_LGUI,KC_QUOTE), KC_LCBR,             KC_RCBR,MT(MOD_RGUI, KC_PLUS),  MT(MOD_RALT,KC_MINS),KC_ASTR,   KC_ENTER,
 //
-    KC_EQUAL,   KC_CIRC,   KC_QUOT, KC_DQUO, KC_LBRC,                                   KC_RBRC,    KC_HASH, S(KC_SCLN), KC_UNDS, KC_TILD,
+    KC_PLUS,   KC_CIRC,   KC_PERC, KC_DQUO, KC_LBRC,                                   KC_RBRC,    KC_HASH, S(KC_SCLN), KC_UNDS, KC_TILD,
 //
             TO(0),   OSM(MOD_LSFT),             OSM(MOD_RCTL), TO(2)
   ),
