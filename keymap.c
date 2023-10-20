@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 [1] = LAYOUT( /* Colemak */
 //
-    KC_ESCAPE,    KC_AT,  KC_EXLM, KC_PIPE, KC_LPRN,                                    KC_RPRN, KC_AMPR,  KC_GRV,    KC_BSLS,   KC_BSPC,
+    KC_ESCAPE,    KC_AT,   KC_PIPE,KC_EXLM, KC_LPRN,                                    KC_RPRN, KC_AMPR,  KC_GRV,    KC_BSLS,   KC_BSPC,
 //
     KC_TAB,   KC_DLR,  MT(MOD_LALT, KC_SCLN),MT(MOD_LGUI,KC_QUOTE), KC_LCBR,             KC_RCBR,MT(MOD_RGUI, KC_PLUS),  MT(MOD_RALT,KC_MINS),KC_ASTR,   KC_ENTER,
 //
