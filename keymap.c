@@ -9,8 +9,8 @@
 // entirely and just use numbers.
 
 
-const uint16_t PROGMEM boot_combo[] = {KC_Q, KC_B, KC_J, KC_BSPC, COMBO_END};
-const uint16_t PROGMEM number_combo[] = {KC_G, KC_M, COMBO_END};
+const uint16_t PROGMEM boot_combo[] = { KC_W, KC_B, KC_J, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM number_combo[] = {LT(1,KC_R), MT(MOD_LALT, KC_S), COMBO_END};
 const uint16_t PROGMEM navi_combo[] = { MT(MOD_RGUI,KC_N),  MT(MOD_RALT,KC_E), COMBO_END};
 combo_t key_combos[] = {
     COMBO(boot_combo, QK_BOOT),
@@ -18,8 +18,12 @@ combo_t key_combos[] = {
     COMBO(navi_combo, TO(6)),
 };
 enum ferris_tap_dances {
-  TD_Q_ESC
+  TD_Q_ESC,
 };
+tap_dance_action_t tap_dance_actions[] = {
+    // Tap once for Q, twice for ESC
+    [TD_Q_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_Q, KC_ESC),
+    };
 
 #define KC_CTSC RCTL_T(KC_SCLN)
 #define KC_CTLA LCTL_T(KC_A)
@@ -37,13 +41,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [0] = LAYOUT( /* Base layer*/
 //
-    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                       KC_J,    KC_L             ,  KC_U             ,    KC_Y,   KC_BSPC,
+    TD(TD_Q_ESC),    KC_W,    KC_F,    KC_P,    KC_B,                                       KC_J,    KC_L             ,  KC_U             ,    KC_Y,   KC_BSPC,
 //
-    LT(6,KC_A),   KC_R,   MT(MOD_LALT, KC_S),    MT(MOD_LGUI,KC_T), KC_G,                 KC_M,    MT(MOD_RGUI,KC_N),  MT(MOD_RALT,KC_E),    LT(9,KC_I),   KC_O,
+    LT(6,KC_A),   LT(1,KC_R),   MT(MOD_LALT, KC_S),    MT(MOD_LGUI,KC_T), KC_G,                 KC_M,    MT(MOD_RGUI,KC_N),  MT(MOD_RALT,KC_E),    LT(1,KC_I),   LT(9,KC_O),
 //
     LT(5, KC_Z),   KC_X,    KC_C,    KC_D, KC_V,                                    KC_K,    KC_H,  KC_COMM, KC_DOT, LT(5, KC_RLSH),
 //
-                                                    KC_SPACE, OSM(MOD_LSFT), OSM(MOD_RCTL), TO(1)
+                                                    KC_SPACE, OSM(MOD_LSFT), OSM(MOD_RCTL), KC_ENTER
   ),
 
 [1] = LAYOUT( /* Symbol layer*/
@@ -107,7 +111,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 // Tap Dance Definitions
-tap_dance_action_t tap_dance_actions[] = {
-    // Tap once for Q, twice for ESC
-    [TD_Q_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_Q, KC_ESC)
-};
+
