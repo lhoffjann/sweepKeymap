@@ -43,8 +43,8 @@ KC_Z_UML, KC_X, KC_C, KC_D_NUM, KC_V,                   KC_K, KC_H_GUI, KC_COMM,
 
 [1] = LAYOUT( /* Symbol layer*/
 KC_ESCAPE, KC_AT, KC_PIPE,KC_EXLM, KC_LPRN,             KC_RPRN, KC_AMPR, KC_GRV, KC_BSLS, KC_NO,// here can go an additional sym key
-//
-KC_TAB, KC_DLR, S(KC_SCLN), KC_QUOTE, KC_LCBR,          KC_RCBR, KC_PLUS, KC_MINS, KC_ASTR, KC_NO,// Here can go some more keys
+// I dont love the tab being on this layer. feels hard to reach
+KC_TAB, KC_DLR, S(KC_SCLN), KC_QUOTE, KC_LCBR,          KC_RCBR, KC_EQL, KC_MINS, KC_ASTR, KC_NO,// Here can go some more keys
 //
 KC_PLUS, KC_CIRC, KC_PERC, KC_DQUO, KC_LBRC,            KC_RBRC, KC_HASH, KC_SCLN, KC_UNDS, KC_TILD,
 //
